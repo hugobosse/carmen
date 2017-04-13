@@ -32,3 +32,15 @@ $yellow: #FDB631;
 $orange: #E67E22;
 $green: #32B796;
 $gray: #000000;
+
+$carmen: rgb(178, 56, 81);
+$dark: rgb(14, 32, 50);
+$dark1: rgb(46, 65, 84);
+$dark2: rgb(27, 47, 68);
+$dark3: rgb(5, 17, 31);
+$dark4: rgb(1, 7, 14);
+
+
+$pink: rgb(226, 96, 109);
+$brown: rgb(151, 68, 71);
+$carmen-linear: linear-gradient(-25deg, rgba($dark, 0.1) 0%, rgba($carmen, 0.1) 33%), rgba($pink, 0.1) 66%);
