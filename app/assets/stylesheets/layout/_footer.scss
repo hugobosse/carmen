@@ -1,1 +1,14 @@
-// Your footer style
+#footer {
+    background: $dark4;
+    padding: 20px;
+    font-size: 18px;
+    color: white;
+}
+
+#footer a {
+  color: white;
+}
+
+#footer a:hover {
+  color: $carmen;
+}
