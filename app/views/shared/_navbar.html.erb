@@ -7,6 +7,16 @@
   <!-- Right Navigation -->
   <div class="navbar-carmen-right hidden-xs hidden-sm">
 
+    <!-- Different navigation if login or not -->
+    <% if user_signed_in? %>
+
+      <!-- Notification -->
+      <%= link_to "#", class: "navbar-carmen-item navbar-carmen-link" do %>
+        <div class="badge-container">
+          <i class="fa fa-envelope-o"></i>
+          <div class="badge badge-blue">3</div>
+        </div>
+      <% end %>
 
       <!-- Profile picture and dropdown -->
       <div class="navbar-carmen-item">
@@ -33,9 +43,12 @@
       </div>
 
     <% else %>
-
-      <!-- Login text link -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-carmen-item navbar-carmen-link" %>
+      <%= link_to "home", root_path, class: "navbar-spirits-item navbar-spirits-link" %>
+      <%= link_to "carmen qui ?", about_path, class: "navbar-spirits-item navbar-spirits-link" %>
+      <%= link_to "stylé !", concept_path, class: "navbar-spirits-item navbar-spirits-link" %>
+      <!-- Login text link
+      <#%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-carmen-item navbar-carmen-link" %>
+    -->
 
     <% end %>
 
