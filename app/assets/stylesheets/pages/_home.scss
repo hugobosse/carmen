@@ -28,3 +28,11 @@
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 50px;
 }
+
+.home-content {
+  padding: 30px 60px;
+  p {
+    color: $dark;
+    line-height: 2;
+  }
+}
