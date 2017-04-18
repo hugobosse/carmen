@@ -32,9 +32,9 @@
 
 .home-content {
   padding: $padding;
+  text-align: center;
+  color: $dark;
   p {
-    text-align: center;
-    color: $dark;
     line-height: 2;
   }
 }
