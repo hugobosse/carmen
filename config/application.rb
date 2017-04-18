@@ -20,7 +20,9 @@ module Carmen
   class Application < Rails::Application
     config.generators do |generate|
       generate.assets false
+      config.assets.paths << Rails.root.join("app", "assets", "fonts")
     end
+
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
