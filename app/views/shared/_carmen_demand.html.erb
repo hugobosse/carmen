@@ -1,0 +1,6 @@
+<div>
+  <%= simple_form_for :demand, url: demands_path do |f| %>
+    <%= f.input :people, collection: 1..10 %>
+    <%= f.submit "demander à carmen" %>
+  <% end %>
+</div>
