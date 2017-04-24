@@ -5,7 +5,7 @@ class Demand < ApplicationRecord
   after_validation :geocode, if: :address_changed?
 
   validates :date, presence: true
-  #validates :budget, presence: true
+  validates :budget, presence: true
   #validates :phone, presence: true
   #validates :name, presence: true
   #validates :cuisine, presence: true
