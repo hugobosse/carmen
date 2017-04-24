@@ -13,6 +13,16 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
     <%= render 'shared/footer' %>
+
+    <!-- Include Google Maps JS API -->
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['GOOGLE_API_KEY'] %>">
+    </script>
+
+    <!-- Custom JS code to bind to Autocomplete API -->
+    <!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
+    <!-- We'll detail this file in the article -->
+    <script type="text/javascript" src="autocomplete.js"></script>
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
