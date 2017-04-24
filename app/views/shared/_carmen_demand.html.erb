@@ -4,6 +4,7 @@
     <%= f.input :address, input_html: { id: 'autocomplete_address'} %>
     <%= f.input :date, as: :datetime %>
     <%= f.input :budget, label: "budget : prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"] %>
+    <%= f.input :phone, as: :tel %>
     <%= f.submit "demander à carmen" %>
   <% end %>
 </div>
