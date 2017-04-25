@@ -14,7 +14,7 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:people, :date, :address, :budget, :phone)
+    params.require(:demand).permit(:people, :date, :address, :budget, :phone, :name, cuisine_ids: [])
   end
 
 end

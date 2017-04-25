@@ -1,10 +1,14 @@
 <div>
   <%= simple_form_for :demand, url: demands_path do |f| %>
-    <%= f.input :people, collection: 1..10 %>
-    <%= f.input :address, input_html: { id: 'autocomplete_address'} %>
+    <%= f.input :people, collection: 1..10, selected: 4 %>
+    <%= f.input :address, input_html: { id: 'autocomplete_address'}, default: " 3 rue de la bourse, 31000 Toulouse" %>
     <%= f.input :date, as: :datetime %>
-    <%= f.input :budget, label: "budget : prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"] %>
-    <%= f.input :phone, as: :tel %>
+    <%= f.input :budget, label: "budget", hint: "prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"], default: "15 à 25€" %>
+    <%= f.input :phone, as: :tel, default: "06 66 85 87 90" %>
+    <%= f.input :name, default: "Test" %>
+    <%= f.association :cuisines %>
     <%= f.submit "demander à carmen" %>
   <% end %>
 </div>
+
+
