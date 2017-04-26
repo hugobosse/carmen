@@ -7,7 +7,6 @@ class CreateDemands < ActiveRecord::Migration[5.0]
       t.string :budget
       t.string :phone
       t.string :name
-      t.string :mood
 
       t.timestamps
     end

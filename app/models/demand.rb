@@ -13,6 +13,10 @@ class Demand < ApplicationRecord
   #validates_format_of :phone, with: /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/, message: "Veuillez insérer un numéro de tel valide"
 
   validates :name, presence: true
+
   has_many :cuisine_choices
-  has_many :cuisines, through: :cuisine_choices  #validates :mood, presence: true
+  has_many :cuisines, through: :cuisine_choices
+
+  has_many :mood_choices
+  has_many :moods, through: :mood_choices
 end
