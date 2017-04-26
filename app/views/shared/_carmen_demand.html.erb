@@ -3,13 +3,13 @@
     <div class="col-xs-12 col-md-2">
       <%= f.input :people, collection: 1..10, selected: 4 %>
     </div>
-    <div class="col-xs-12 col-md-4">
+    <div class="col-xs-12 col-md-3">
       <%= f.input :address, input_html: { id: 'autocomplete_address'}, default: " 3 rue de la bourse, 31000 Toulouse" %>
     </div>
     <div class="col-xs-12 col-md-4">
       <%= f.input :date, as: :datetime %>
     </div>
-    <div class="col-xs-12 col-md-2">
+    <div class="col-xs-12 col-md-3">
       <%= f.input :budget, label: "budget", hint: "prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"], default: "15 à 25€" %>
     </div>
   </div>
@@ -25,6 +25,8 @@
     <div class="col-xs-12 col-md-4">
       <%= f.association :cuisines, as: :check_boxes%>
     </div>
+  </div>
+  <div class="row">
       <%= f.submit "demander à carmen" %>
   </div>
   <% end %>
