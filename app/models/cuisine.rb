@@ -1,3 +1,4 @@
 class Cuisine < ApplicationRecord
-  has_and_belongs_to_many :demands
+  has_many :cuisine_choices
+  has_many :demands, through: :cuisine_choices
 end
