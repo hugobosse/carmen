@@ -38,7 +38,7 @@
 
 .submit_carmen {
   color: white;
-  border: 1px solid $dark;
+  border-radius: 50px;
   padding: 10px 15px;
   background: $carmen;
   &:hover{
@@ -50,6 +50,7 @@
 .pref_link {
   color: white;
   border: 1px solid white;
+  border-radius: 5px;
   padding: 10px 15px;
   background: rgba($dark, 0.2);
 }
