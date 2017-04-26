@@ -19,4 +19,6 @@ Cuisine.new(name: "Fusion").save
 Cuisine.new(name: "Orientale").save
 Cuisine.new(name: "Végétarien").save
 
-
+Mood.new(name: "Entre amis").save
+Mood.new(name: "Business").save
+Mood.new(name: "Romantique").save
