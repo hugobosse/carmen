@@ -3,7 +3,6 @@ class DemandsController < ApplicationController
 
   def create
     @demand = Demand.new(demand_params)
-    @demand.save
     if @demand.save
       redirect_to root_path, notice: "Correct"
     else
