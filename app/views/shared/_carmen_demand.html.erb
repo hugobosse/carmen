@@ -22,13 +22,21 @@
     </div>
   </div>
   <div class="row">
+<a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  + de critères
+</a>
+<div class="collapse" id="collapseExample">
+  <div class="">
     <div class="col-xs-12 col-md-4">
       <%= f.association :cuisines, as: :check_boxes%>
     </div>
+  </div>
+</div>
   </div>
   <div class="row">
       <%= f.submit "demander à carmen" %>
   </div>
   <% end %>
+
 
 
