@@ -3,7 +3,6 @@ class DemandsController < ApplicationController
 
   def create
     @demand = Demand.new(demand_params)
-    @demand.save
     if @demand.save
       redirect_to root_path, notice: "Correct"
     else
@@ -14,7 +13,7 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:people, :date)
+    params.require(:demand).permit(:people, :date, :address, :budget, :phone, :name, cuisine_ids: [], mood_ids: [])
   end
 
 end
