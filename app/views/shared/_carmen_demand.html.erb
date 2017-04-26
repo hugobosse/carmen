@@ -1,44 +1,45 @@
+
   <%= simple_form_for @demand do |f| %>
-  <div class="row">
-    <div class="col-xs-12 col-md-2">
-      <%= f.input :people, collection: 1..10, selected: 4 %>
+    <div class="row">
+      <div class="col-xs-12 col-md-2">
+        <%= f.input :people, collection: 1..10, selected: 4 %>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= f.input :address, input_html: { id: 'autocomplete_address'}, default: " 3 rue de la bourse, 31000 Toulouse" %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :date, as: :datetime %>
+      </div>
+      <div class="col-xs-12 col-md-3">
+        <%= f.input :budget, label: "budget", hint: "prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"], default: "15 à 25€" %>
+      </div>
     </div>
-    <div class="col-xs-12 col-md-3">
-      <%= f.input :address, input_html: { id: 'autocomplete_address'}, default: " 3 rue de la bourse, 31000 Toulouse" %>
+    <div class="row">
+      <a class="pref_link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        + de critères
+      </a>
+      <div class="collapse" id="collapseExample">
+        <div class="pref">
+          <div class="col-xs-12 col-md-4">
+            <%= f.association :cuisines, as: :check_boxes, input_html: { checked: true} %>
+          </div>
+          <div class="col-xs-12 col-md-4">
+            <%= f.association :moods, as: :check_boxes, input_html: { checked: true } %>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-12 col-md-4">
-      <%= f.input :date, as: :datetime %>
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :phone, as: :tel, placeholder: "Numéro de le réservation" %>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <%= f.input :name, default: "Test", placeholder: "Nom de le réservation"%>
+      </div>
     </div>
-    <div class="col-xs-12 col-md-3">
-      <%= f.input :budget, label: "budget", hint: "prix moy d'un plat principal", collection: ["moins de 15€", "15 à 25€", "25 à 45€", "45 €et plus"], default: "15 à 25€" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-4">
-      <%= f.input :phone, as: :tel, default: "06 66 85 87 90" %>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <%= f.input :name, default: "Test" %>
-    </div>
-  </div>
-  <div class="row">
-<a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-  + de critères
-</a>
-<div class="collapse" id="collapseExample">
-  <div class="">
-    <div class="col-xs-12 col-md-4">
-      <%= f.association :cuisines, as: :check_boxes, input_html: { checked: true } %>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <%= f.association :moods, as: :check_boxes, input_html: { checked: true } %>
-    </div>
-  </div>
-</div>
-  </div>
-  <div class="row">
-      <%= f.submit "demander à carmen" %>
-  </div>
+      <div>
+          <%= f.submit "demander à carmen", class: "submit_carmen" %>
+      </div>
   <% end %>
 
 

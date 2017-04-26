@@ -36,3 +36,24 @@
   padding: 25px 20px;
 }
 
+.submit_carmen {
+  color: white;
+  border: 1px solid $dark;
+  padding: 10px 15px;
+  background: $carmen;
+  &:hover{
+    text-decoration: none;
+    border: 2px solid $dark;
+  }
+}
+
+.pref_link {
+  color: white;
+  border: 1px solid white;
+  padding: 10px 15px;
+  background: rgba($dark, 0.2);
+}
+
+.pref {
+  text-align: left;
+}
