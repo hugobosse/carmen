@@ -15,15 +15,17 @@
       </div>
     </div>
     <div class="row">
-      <a class="pref_link" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        + de critères
-      </a>
+      <div class="pref_link">
+        <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          + de critères
+        </a>
+      </div>
       <div class="collapse" id="collapseExample">
         <div class="pref">
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-6 col-md-4">
             <%= f.association :cuisines, as: :check_boxes, input_html: { checked: true} %>
           </div>
-          <div class="col-xs-12 col-md-4">
+          <div class="col-xs-6 col-md-4">
             <%= f.association :moods, as: :check_boxes, input_html: { checked: true } %>
           </div>
         </div>
