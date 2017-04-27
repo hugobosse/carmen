@@ -5,7 +5,6 @@
 .banner {
   margin-top: 60px;
   color: white;
-  text-align: center;
   background-size: cover !important;
   background-position: center center;
   display: flex;
@@ -15,25 +14,40 @@
 }
 
 .banner-title {
+  text-align: center;
   margin-top: -20px;
   padding: 50px 20px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .banner h1 {
   font-size: 50px;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 
 .banner p {
   font-size: 18px;
   font-weight: lighter;
-  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 50px;
 }
 
 .carmen_demand {
   width: 100%;
   padding: 25px 20px;
+  label {
+    font-weight: normal;
+    color: $carmen;
+    text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.form-control {
+  background: rgba($dark, 0.3);
+  color: #CCC;
+  border-bottom: 1px solid white;
+}
+
+.datetime{
+  margin-bottom: 5px;
 }
 
 .submit_carmen {
