@@ -2,16 +2,16 @@
   <%= simple_form_for @demand do |f| %>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-2">
-        <%= f.input :people, label: "Nb de personnes", collection: 1..10, selected: 4 %>
+        <%= f.input :people, label: "Combien de personnes?", collection: 1..10, selected: 4 %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :address, label: "Lieu de la réservation", input_html: { id: 'autocomplete_address'}%>
+        <%= f.input :address, label: "Vers où souhaitez vous aller?", input_html: { id: 'autocomplete_address'}%>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :date, label: "Date et heure", as: :datetime %>
+        <%= f.input :date, label: "A quelle date et quelle heure?", as: :datetime %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :budget, label: "Votre budget", hint: "prix moy d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
+        <%= f.input :budget, label: "Quel est votre budget?", hint: "prix moy d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
       </div>
     </div>
     <div class="row">
@@ -23,20 +23,20 @@
       <div class="collapse" id="collapseExample">
         <div class="pref">
           <div class="col-xs-6 col-sm-6 col-md-4">
-            <%= f.association :cuisines, label: "Types de cuisines", as: :check_boxes, input_html: { checked: true} %>
+            <%= f.association :cuisines, label: "Avez vous des préférences de cuisines?", as: :check_boxes, input_html: { checked: true} %>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-4">
-            <%= f.association :moods, label: "Types d'ambiances", as: :check_boxes, input_html: { checked: true } %>
+            <%= f.association :moods, label: "Quelle ambiances cherchez vous?", as: :check_boxes, input_html: { checked: true } %>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :phone, label: "Numéro de le réservation", as: :tel, placeholder: "Votre numéro de téléphone" %>
+        <%= f.input :phone, label: "Quel est votre numéro de téléphone?", as: :tel, placeholder: "numéro de la réservation" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :name, label: "Nom de le réservation", default: "Test", placeholder: "Votre nom" %>
+        <%= f.input :name, label: "A quel nom souhaitez vous réserver?", default: "Test", placeholder: "votre nom" %>
       </div>
     </div>
       <div>
