@@ -2,7 +2,7 @@
   <%= simple_form_for @demand do |f| %>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-2">
-        <%= f.input :people, label: "Combien de personnes?", collection: 1..10, selected: 4 %>
+        <%= f.input :people, label: "Personnes à table?", collection: 1..10, selected: 4 %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= f.input :address, label: "Vers où souhaitez vous aller?", input_html: { id: 'autocomplete_address'}%>
