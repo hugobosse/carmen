@@ -18,6 +18,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "geocoder"
 gem 'rails-assets-smalot-bootstrap-datetimepicker', source: 'https://rails-assets.org'
+gem 'cloudinary'
 
 
 group :development, :test do
