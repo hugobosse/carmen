@@ -8,7 +8,7 @@
         <%= f.input :address, label: "Vers où souhaitez vous aller?", input_html: { id: 'autocomplete_address'}%>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :date, label: "A quelle date et quelle heure?", as: :datetime %>
+        <%= f.input :date, label: "A quelle date et quelle heure?", as: :string %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= f.input :budget, label: "Quel est votre budget?", hint: "prix moy d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
@@ -33,7 +33,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :phone, label: "Quel est votre numéro de téléphone?", as: :tel, placeholder: "numéro de la réservation" %>
+        <%= f.input :phone, label: "Quel est votre numéro de téléphone?", as: :tel, placeholder: "Votre numéro de téléphone" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <%= f.input :name, label: "A quel nom souhaitez vous réserver?", default: "Test", placeholder: "votre nom" %>
@@ -44,5 +44,12 @@
       </div>
   <% end %>
 
-
-
+<%= content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $('#demand_date').datetimepicker({
+      format: 'DD d MM yyyy à hh:ii',
+      autoclose: true,
+      language: 'fr',
+    });
+  <% end %>
+<% end %>
