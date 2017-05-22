@@ -100,8 +100,11 @@
   transition-timing-function: ease-out;
 }
 
-.carmen_btn:hover:before, .carmen_btn:focus:before, .carmen_btn:active:before {
+.carmen_btn:focus {
   color: white;
+}
+
+.carmen_btn:hover:before, .carmen_btn:focus:before, .carmen_btn:active:before {
   border-bottom: none;
   text-decoration: none;
   transition-property: right;

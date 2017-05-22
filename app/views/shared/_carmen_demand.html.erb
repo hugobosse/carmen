@@ -5,10 +5,10 @@
         <%= f.input :people, label: "Personnes à table ?", collection: 1..10, selected: 4 %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :address, label: "Vers où souhaitez vous aller ?", input_html: { id: 'autocomplete_address'}%>
+        <%= f.input :address, label: "Vers où souhaitez vous aller ?", input_html: { id: 'autocomplete_address'}, error: "Veuillez insérer un adresse" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :date, label: "Quuand souhaitez vous réserver ?", placeholder: "Date de la réservation", as: :string %>
+        <%= f.input :date, label: "Quand souhaitez vous réserver ?", placeholder: "Date de la réservation", as: :string, error: "Veuillez choisir une date" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
         <%= f.input :budget, label: "Quel est votre budget ?", hint: "prix moy d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
@@ -17,26 +17,26 @@
     <div class="row">
       <div class="pref_link">
         <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          + de critères
+          + de choix
         </a>
       </div>
       <div class="collapse" id="collapseExample">
         <div class="pref">
           <div class="col-xs-6 col-sm-6 col-md-4">
-            <%= f.association :cuisines, label: "Avez vous des préférences de cuisines ?", as: :check_boxes, input_html: { checked: true} %>
+            <%= f.input :mood, label: "Quelle ambiances cherchez vous ?", collection: ["Business", "Conviviale", "Romantique"], as: :radio_buttons, checked: "Conviviale" %>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-4">
-            <%= f.association :moods, label: "Quelle ambiances cherchez vous ?", as: :check_boxes, input_html: { checked: true } %>
+            <%= f.input :visitor_input, label: "Avez-vous des préférences ?", as: :text %>
           </div>
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :phone, label: "Quel est votre numéro de téléphone ?", as: :tel, placeholder: "Votre numéro de téléphone" %>
+        <%= f.input :phone, label: "Quel est votre numéro de téléphone ?", as: :tel, placeholder: "Votre numéro de téléphone", error: "Veuillez insérer un numéro de téléphone"  %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :name, label: "A quel nom souhaitez vous réserver ?", default: "Test", placeholder: "Votre nom" %>
+        <%= f.input :name, label: "A quel nom souhaitez vous réserver ?", default: "Test", placeholder: "Votre nom", error: "Veuillez insérer un nom" %>
       </div>
     </div>
       <div>

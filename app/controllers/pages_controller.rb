@@ -3,7 +3,6 @@ class PagesController < ApplicationController
 
   def home
     @demand = Demand.new
-    @cuisines = Cuisine.all
   end
 
   def about

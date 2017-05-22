@@ -7,6 +7,10 @@ class CreateDemands < ActiveRecord::Migration[5.0]
       t.string :budget
       t.string :phone
       t.string :name
+      t.string :mood
+      t.string :visitor_input
+      t.float :latitude
+      t.float :longitude
 
       t.timestamps
     end
