@@ -1,9 +1,11 @@
 #footer {
-    background: $dark3;
-    padding: 20px;
-    font-size: 14px;
-    color: white;
-    font-weight: 300;
+  background: $dark3;
+  padding: 20px;
+  font-size: 14px;
+  color: white;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
 }
 
 #footer a {

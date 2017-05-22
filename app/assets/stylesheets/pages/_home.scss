@@ -10,7 +10,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(-10deg, rgba($dark,0.5) 0%, rgba($dark3,0.5) 75%), image-url('carmen_bg.png');
 }
 
 .banner-title {
@@ -44,6 +43,7 @@
   background: rgba($dark, 0.3);
   color: #CCC;
   border-bottom: 1px solid white;
+  position: relative;
 }
 
 .datetime{
@@ -100,8 +100,11 @@
   transition-timing-function: ease-out;
 }
 
-.carmen_btn:hover:before, .carmen_btn:focus:before, .carmen_btn:active:before {
+.carmen_btn:focus {
   color: white;
+}
+
+.carmen_btn:hover:before, .carmen_btn:focus:before, .carmen_btn:active:before {
   border-bottom: none;
   text-decoration: none;
   transition-property: right;

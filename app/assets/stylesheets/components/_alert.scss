@@ -7,10 +7,21 @@
   margin-bottom: -60px;
   text-align: center;
   color: white;
+  background: $carmen !important;
 }
 .alert-info {
   background: $green;
 }
 .alert-warning {
   background: $red;
+}
+
+.has-error .form-control {
+  border-color: $pink !important;
+}
+
+.has-error{
+  .help-block{
+    color: $pink !important;
+    font-style: italic;  }
 }
