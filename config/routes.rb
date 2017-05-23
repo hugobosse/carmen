@@ -9,7 +9,4 @@ Rails.application.routes.draw do
   get '/about/', to: 'pages#about', as: 'about'
 
   resources :demands, only: [:create]
-
-  match '/google0a77a05d8f74e025.html', to: proc { |env| [200, {}, ["google-site-verification: google0a77a05d8f74e025.html"]] }
-
 end
