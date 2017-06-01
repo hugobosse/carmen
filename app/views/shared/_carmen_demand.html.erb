@@ -43,10 +43,15 @@
 
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
+  var today = new Date();
     $('#demand_date').datetimepicker({
       format: 'DD dd MM yyyy à hh:ii',
       autoclose: true,
       language: 'fr',
+      todayHighlight: true,
+      minuteStep: 15,
+      todayBtn: true,
+      startDate : today
     });
   <% end %>
 <% end %>
