@@ -33,10 +33,7 @@
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :phone, label: "Quel est votre numéro de téléphone ?", as: :tel, placeholder: "Votre numéro de téléphone", error: "Veuillez insérer un numéro de téléphone"  %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :name, label: "A quel nom souhaitez vous réserver ?", default: "Test", placeholder: "Votre nom", error: "Veuillez insérer un nom" %>
+        <%= f.input :phone, label: "Quel est votre numéro de mobile ?", as: :tel, placeholder: "Votre numéro de portable", error: "Veuillez insérer un numéro de mobile"  %>
       </div>
     </div>
       <div>
@@ -47,7 +44,7 @@
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>
     $('#demand_date').datetimepicker({
-      format: 'DD d MM yyyy à hh:ii',
+      format: 'DD dd MM yyyy à hh:ii',
       autoclose: true,
       language: 'fr',
     });

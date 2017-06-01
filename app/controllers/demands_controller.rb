@@ -13,7 +13,7 @@ class DemandsController < ApplicationController
   private
 
   def demand_params
-    params.require(:demand).permit(:people, :date, :address, :budget, :phone, :name, :mood, :visitor_input)
+    params.require(:demand).permit(:people, :date, :address, :budget, :phone, :mood, :visitor_input)
   end
 
 end

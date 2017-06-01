@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 20170419160349) do
     t.datetime "date"
     t.string   "budget"
     t.string   "phone"
-    t.string   "name"
     t.string   "mood"
     t.string   "visitor_input"
     t.float    "latitude"

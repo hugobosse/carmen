@@ -10,7 +10,6 @@ class Demand < ApplicationRecord
   validates :budget, presence: true
 
   validates :phone, presence: true
-  validates_format_of :phone, with: /(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}/, message: "Il me semble que ce numéro de téléphone n'est pas valide"
+  validates_format_of :phone, with: /(?:(?:\+|00)33|0)\s*[67](?:[\s.-]*\d{2}){4}/, message: "Il me semble que ce numéro de téléphone n'est pas valide"
 
-  validates :name, presence: true
 end
