@@ -5,13 +5,13 @@
         <%= f.input :people, label: "Personnes à table ?", collection: 1..10, selected: 4 %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :address, label: "Vers où souhaitez vous aller ?", input_html: { id: 'autocomplete_address'}, error: "Veuillez insérer un adresse" %>
+        <%= f.input :address, label: "Ou souhaitez-vous réservez ?", placeholder: "Adresse autour de laquelle vous souhaitez aller", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-4">
         <%= f.input :date, label: "Quand souhaitez vous réserver ?", placeholder: "Date de la réservation", as: :string, error: "Veuillez choisir une date" %>
       </div>
       <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :budget, label: "Quel est votre budget ?", hint: "prix moy d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
+        <%= f.input :budget, label: "Quel est votre budget ?", hint: "prix moyen d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
       </div>
     </div>
     <div class="row">
@@ -37,7 +37,7 @@
       </div>
     </div>
       <div>
-          <%= f.submit "demander à carmen", class: "submit_carmen" %>
+          <%= f.submit "Demander à carmen", class: "submit_carmen" %>
       </div>
   <% end %>
 
