@@ -1,11 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Tagging, '#tag reference' do
-  it "is invalid without a reference to a tag" do
-    expect(Tagging.new).to_not be_valid
-  end
-
-  it "is invalid without a reference to a restaurant" do
-    expect(Tagging.new())
+RSpec.describe Tagging do
+  it 'has a valid factory' do
+    expect(FactoryGirl.build(:restaurant)).to be_valid
   end
 end
