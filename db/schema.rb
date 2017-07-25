@@ -10,23 +10,102 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419160349) do
+ActiveRecord::Schema.define(version: 20170725124225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "budgets", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "demands", force: :cascade do |t|
-    t.integer  "people"
-    t.string   "address"
-    t.datetime "date"
-    t.string   "budget"
-    t.string   "phone"
-    t.string   "mood"
-    t.string   "visitor_input"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.integer  "user_id"
+    t.integer  "number_of_people"
+    t.text     "comment"
+    t.string   "location"
+    t.datetime "scheduled_at"
+    t.integer  "budget_id"
+    t.integer  "mood_id"
+    t.integer  "status_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["budget_id"], name: "index_demands_on_budget_id", using: :btree
+    t.index ["mood_id"], name: "index_demands_on_mood_id", using: :btree
+    t.index ["status_id"], name: "index_demands_on_status_id", using: :btree
+    t.index ["user_id"], name: "index_demands_on_user_id", using: :btree
+  end
+
+  create_table "moods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pings", force: :cascade do |t|
+    t.integer  "restaurant_id"
+    t.integer  "demand_id"
+    t.integer  "status_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["demand_id"], name: "index_pings_on_demand_id", using: :btree
+    t.index ["restaurant_id"], name: "index_pings_on_restaurant_id", using: :btree
+    t.index ["status_id"], name: "index_pings_on_status_id", using: :btree
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "ping_id"
+    t.integer  "status_id"
+    t.integer  "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ping_id"], name: "index_reservations_on_ping_id", using: :btree
+    t.index ["status_id"], name: "index_reservations_on_status_id", using: :btree
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "primary_phone"
+    t.string   "secondary_phone"
+    t.text     "description"
+    t.time     "lunch_service_opening_at"
+    t.time     "lunch_service_closing_at"
+    t.time     "dinner_service_opening_at"
+    t.time     "dinner_service_closing_at"
+    t.integer  "budget_id"
+    t.integer  "mood_id"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["budget_id"], name: "index_restaurants_on_budget_id", using: :btree
+    t.index ["mood_id"], name: "index_restaurants_on_mood_id", using: :btree
+    t.index ["user_id"], name: "index_restaurants_on_user_id", using: :btree
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id"
+    t.integer  "restaurant_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["restaurant_id"], name: "index_taggings_on_restaurant_id", using: :btree
+    t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,4 +125,18 @@ ActiveRecord::Schema.define(version: 20170419160349) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "demands", "budgets"
+  add_foreign_key "demands", "moods"
+  add_foreign_key "demands", "statuses"
+  add_foreign_key "demands", "users"
+  add_foreign_key "pings", "demands"
+  add_foreign_key "pings", "restaurants"
+  add_foreign_key "pings", "statuses"
+  add_foreign_key "reservations", "pings"
+  add_foreign_key "reservations", "statuses"
+  add_foreign_key "restaurants", "budgets"
+  add_foreign_key "restaurants", "moods"
+  add_foreign_key "restaurants", "users"
+  add_foreign_key "taggings", "restaurants"
+  add_foreign_key "taggings", "tags"
 end
