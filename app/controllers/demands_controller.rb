@@ -3,8 +3,6 @@ class DemandsController < ApplicationController
 
   def new
     @demand = Demand.new
-    @moods = Mood.all
-    @budgets = Budget.all
   end
 
   def create
