@@ -1,0 +1,10 @@
+<%= simple_form_for @demand do |f| %>
+  <%= f.input :number_of_people, collection: 1..10, selected: 4, placeholder: 'Combien de couverts ?' %>
+  <%= f.input :location, label: "Adresse", placeholder: "Adresse, quartier, métro, arrondissement...", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
+  <%= f.input :scheduled_at, as: :string, input_html: { class: 'datetimepicker' } %>
+  <%= f.input :comment %>
+  <%= f.input :phone %>
+  <%= f.association :budget %>
+  <%= f.association :mood %>
+  <%= f.submit %>
+<% end %>
