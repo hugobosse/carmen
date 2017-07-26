@@ -21,9 +21,9 @@ class MoodDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :restaurants,
     :id,
     :name,
+    :restaurants,
     :created_at,
   ].freeze
 
@@ -48,7 +48,7 @@ class MoodDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how moods are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(mood)
-  #   "Mood ##{mood.id}"
-  # end
+  def display_resource(mood)
+    "#{mood.id}. #{mood.name}"
+  end
 end

@@ -22,10 +22,10 @@ class TagDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :taggings,
-    :restaurants,
     :id,
     :name,
+    :taggings,
+    :restaurants,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -51,7 +51,7 @@ class TagDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how tags are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(tag)
-  #   "Tag ##{tag.id}"
-  # end
+  def display_resource(tag)
+    "#{tag.id}. #{tag.name}"
+  end
 end

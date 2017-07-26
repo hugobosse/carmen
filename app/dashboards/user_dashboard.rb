@@ -11,6 +11,8 @@ class UserDashboard < Administrate::BaseDashboard
     demands: Field::HasMany,
     id: Field::Number,
     email: Field::String,
+    mobile_phone: Field::String,
+    admin: Field::Boolean,
     encrypted_password: Field::String,
     reset_password_token: Field::String,
     reset_password_sent_at: Field::DateTime,
@@ -31,9 +33,11 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :demands,
     :id,
+    :mobile_phone,
     :email,
+    :admin,
+    :demands,
     :encrypted_password,
   ].freeze
 
