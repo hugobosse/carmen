@@ -1,45 +1,44 @@
-
-  <%= simple_form_for @demand do |f| %>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-2">
-        <%= f.input :people, label: "Personnes à table ?", collection: 1..10, selected: 4 %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :address, label: "Ou souhaitez-vous réservez ?", placeholder: "Adresse autour de laquelle vous souhaitez aller", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :date, label: "Quand souhaitez vous réserver ?", placeholder: "Date de la réservation", as: :string, error: "Veuillez choisir une date" %>
-      </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <%= f.input :budget, label: "Quel est votre budget ?", hint: "prix moyen d'un plat principal", collection: ["- de 15€", "15 à 25€", "25 à 45€", "45€ et plus"], selected: "15 à 25€"%>
-      </div>
+<%= simple_form_for @demand do |f| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-2">
+      <%= f.input :number_of_people, label: "Personnes à table ?", collection: 1..10, selected: 4 %>
     </div>
-    <div class="row">
-      <div class="pref_link">
-        <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          + de choix
-        </a>
-      </div>
-      <div class="collapse" id="collapseExample">
-        <div class="pref">
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= f.input :mood, label: "Quelle ambiances cherchez vous ?", collection: ["Business", "Conviviale", "Romantique"], as: :radio_buttons, checked: "Conviviale" %>
-          </div>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <%= f.input :visitor_input, label: "Avez-vous des préférences ?", as: :text %>
-          </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= f.input :location, label: "Adresse", placeholder: "Adresse, quartier, métro, arrondissement...", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= f.input :scheduled_at, as: :string, label: "Quand souhaitez vous réserver ?", input_html: { class: "datetimepicker" }, error: "Veuillez choisir une date" %>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      <%= f.input :budget, label: "Quel est votre budget ?", hint: "prix moyen d'un plat principal", collection: @budgets, selected: 0 %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="pref_link">
+      <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        + de choix
+      </a>
+    </div>
+    <div class="collapse" id="collapseExample">
+      <div class="pref">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= f.input :mood, label: "Quelle ambiance cherchez vous ?", collection: @moods, as: :radio_buttons %>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          <%= f.input :comment, label: "Avez-vous des préférences ?", as: :text %>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4">
-        <%= f.input :phone, label: "Quel est votre numéro de mobile ?", as: :tel, placeholder: "Votre numéro de portable", error: "Veuillez insérer un numéro de mobile"  %>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4">
+      <%= f.input :phone, label: "Quel est votre numéro de mobile ?", as: :tel, placeholder: "Nécessaire pour la réservation", error: "Veuillez insérer un numéro de mobile"  %>
     </div>
-      <div>
-          <%= f.submit "Demander à carmen", class: "submit_carmen" %>
-      </div>
-  <% end %>
+  </div>
+    <div>
+        <%= f.submit "Demander à carmen", class: "submit_carmen" %>
+    </div>
+<% end %>
 
 <%= content_for(:after_js) do %>
   <%= javascript_tag do %>

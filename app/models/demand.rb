@@ -5,3 +5,4 @@ class Demand < ApplicationRecord
   belongs_to :status
   has_many :pings
 end
+  
