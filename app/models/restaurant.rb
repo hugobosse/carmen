@@ -1,4 +1,8 @@
 class Restaurant < ApplicationRecord
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
   belongs_to :user
   belongs_to :budget
   belongs_to :mood
@@ -9,6 +13,14 @@ class Restaurant < ApplicationRecord
   validates :lunch_service_closing_at, format: { with: /(\A[0-2]\d:[0-5]\d\z|\A\s*\z)/ }
   validates :dinner_service_opening_at, format: { with: /(\A[0-2]\d:[0-5]\d\z|\A\s*\z)/ }
   validates :dinner_service_closing_at, format: { with: /(\A[0-2]\d:[0-5]\d\z|\A\s*\z)/ }
+
+  phony_normalize :primary_phone, default_country_code: 'FR'
+  validates :primary_phone, presence: true
+  validates_plausible_phone :primary_phone
+  validates :primary_phone, format: {
+    with: /\A(\+33|0)\s*\d(\s*\d{2}){4}\z/,
+    message: "Ce n'est pas un numéro de mobile valide"
+  }
 
   validate :check_lunch_hours
   validate :check_dinner_hours

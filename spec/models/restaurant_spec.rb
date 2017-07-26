@@ -48,4 +48,14 @@ RSpec.describe Restaurant do
     end
   end
 
+  describe '#phone' do
+    it 'is invalid without a primary_phone number' do
+      expect(FactoryGirl.build(:restaurant, primary_phone: nil)).to_not be_valid
+    end
+
+    it 'is invalid if primary_phone format is not valid' do
+      expect(FactoryGirl.build(:restaurant, primary_phone: '+33548')).to_not be_valid
+    end
+  end
+
 end
