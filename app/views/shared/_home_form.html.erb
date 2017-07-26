@@ -1,10 +1,43 @@
-<%= simple_form_for @demand do |f| %>
-  <%= f.input :number_of_people, collection: 1..10, selected: 4, placeholder: 'Combien de couverts ?' %>
-  <%= f.input :location, label: "Adresse", placeholder: "Adresse, quartier, métro, arrondissement...", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
-  <%= f.input :scheduled_at, as: :string, input_html: { class: 'datetimepicker' } %>
-  <%= f.input :comment %>
-  <%= f.input :phone %>
-  <%= f.association :budget %>
-  <%= f.association :mood %>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @demand do |f| %>
+  <div class="row">
+    <div class="col-md-3">
+      <%= f.input :number_of_people, label: "Nombre de couverts", collection: 1..10, selected: 4, placeholder: 'Combien de couverts ?' %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :location, label: "Adresse", placeholder: "Adresse, quartier, métro, arrondissement...", input_html: { id: 'autocomplete_address'}, error: "Veuillez choisir une adresse valide" %>
+    </div>
+    <div class="col-md-3">
+      <%= f.input :scheduled_at, as: :string, label: "Date de réservation", input_html: { class: 'datetimepicker' } %>
+    </div>
+    <div class="col-md-3">
+      <%= f.association :budget, label: "Quel est votre budget ?", hint: "prix moyen d'un plat principal" %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="pref_link">
+      <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        + de choix
+      </a>
+    </div>
+    <div class="collapse" id="collapseExample">
+      <div class="pref">
+        <div class="col-md-4">
+          <%= f.association :mood, label: "Quelle ambiance souhaitez-vous ?" %>
+        </div>
+        <div class="col-md-4">
+          <%= f.input :comment, label: "Avez-vous des préférences ?" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.input :phone, label: "Quel est votre numéro de mobile ?", placeholder: "Nécessaire pour la réservation" %>
+    </div>
+    <div class="col-md-6">
+      <%= f.submit "Demander à Carmen", class: "input-md submit_carmen" %>
+    </div>
+  </div>
+  <% end %>
+</div>
