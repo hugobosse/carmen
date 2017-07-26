@@ -1,4 +1,19 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :users
+    resources :budgets
+    resources :demands
+    resources :moods
+    resources :pings
+    resources :reservations
+    resources :restaurants
+    resources :statuses
+    resources :tags
+    resources :taggings
+
+    root to: "users#index"
+  end
+
   get 'cuisines/new'
 
   get 'cuisines/create'
