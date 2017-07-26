@@ -45,7 +45,7 @@ class StatusDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how statuses are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(status)
-  #   "Status ##{status.id}"
-  # end
+  def display_resource(status)
+    "#{status.id}. #{status.name}"
+  end
 end

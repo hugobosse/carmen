@@ -22,19 +22,19 @@ class PingDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :id,
     :restaurant,
     :demand,
-    :status,
-    :id,
+    :status
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :restaurant,
     :demand,
     :status,
-    :id,
     :created_at,
     :updated_at,
   ].freeze

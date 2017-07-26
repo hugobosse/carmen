@@ -30,9 +30,9 @@ class BudgetDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :restaurants,
     :id,
     :name,
+    :restaurants,
     :created_at,
     :updated_at,
   ].freeze
@@ -41,8 +41,7 @@ class BudgetDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :restaurants,
-    :name,
+    :name
   ].freeze
 
   # Overwrite this method to customize how budgets are displayed

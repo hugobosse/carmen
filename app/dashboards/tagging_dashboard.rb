@@ -30,9 +30,9 @@ class TaggingDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
+    :id,
     :tag,
     :restaurant,
-    :id,
     :created_at,
     :updated_at,
   ].freeze
@@ -42,7 +42,7 @@ class TaggingDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
     :tag,
-    :restaurant,
+    :restaurant
   ].freeze
 
   # Overwrite this method to customize how taggings are displayed
