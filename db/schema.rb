@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725124756) do
+ActiveRecord::Schema.define(version: 20170725160534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,10 +74,10 @@ ActiveRecord::Schema.define(version: 20170725124756) do
     t.string   "primary_phone"
     t.string   "secondary_phone"
     t.text     "description"
-    t.time     "lunch_service_opening_at"
-    t.time     "lunch_service_closing_at"
-    t.time     "dinner_service_opening_at"
-    t.time     "dinner_service_closing_at"
+    t.string   "lunch_service_opening_at"
+    t.string   "lunch_service_closing_at"
+    t.string   "dinner_service_opening_at"
+    t.string   "dinner_service_closing_at"
     t.integer  "budget_id"
     t.integer  "mood_id"
     t.datetime "created_at",                null: false

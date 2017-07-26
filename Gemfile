@@ -25,7 +25,8 @@ gem 'cloudinary'
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
-
+  gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'spring'
