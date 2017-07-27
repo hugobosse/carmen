@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
-  get 'cuisines/new'
+  namespace :admin do
+    resources :users
+    resources :budgets
+    resources :demands
+    resources :moods
+    resources :pings
+    resources :reservations
+    resources :restaurants
+    resources :statuses
+    resources :tags
+    resources :taggings
 
-  get 'cuisines/create'
+    root to: "users#index"
+  end
 
   devise_for :users
   root to: 'pages#home'
