@@ -1,0 +1,37 @@
+<h1>New Carmen demand</h1>
+
+<h3>Demand details</h3>
+<ul>
+  <li>User phone: <%= @demand.user.mobile_phone %></li>
+  <li>Location: <%= @demand.location %></li>
+  <li>People: <%= @demand.number_of_people %></li>
+  <li>Comment: <%= @demand.comment %></li>
+  <li>Date: <%= @demand.scheduled_at %></li>
+  <li>Budget: <%= Budget.find(@demand.budget_id).name %></li>
+  <li>Mood: <%= Mood.find(@demand.mood_id).name %></li>
+</ul>
+
+<hr>
+
+<h3>Restaurants details</h3>
+<% if @restaurants.empty? %>
+  <p><strong>No restaurants found for this request !</strong></p>
+<% else %>
+  <ul>
+    <% @restaurants.each do |restaurant| %>
+      <li>
+        <strong><%= @restaurant.name %></strong>
+        <ul>
+          <li><%= @restaurant.address %></li>
+          <li><%= @restaurant.primary_phone %></li>
+          <li><%= @restaurant.secondary_phone %></li>
+          <li><%= @restaurant.description %></li>
+          <li><%= @restaurant.lunch_service_opening_at %></li>
+          <li><%= @restaurant.lunch_service_closing_at %></li>
+          <li><%= @restaurant.dinner_service_opening_at %></li>
+          <li><%= @restaurant.dinner_service_closing_at %></li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
