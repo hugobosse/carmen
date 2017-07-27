@@ -9,6 +9,14 @@ class DemandsController < ApplicationController
     @demand = Demand.new(demand_params)
     @demand.user = User.first # TODO : user must be found with mobile phone
     @demand.status = Status.find_by_name('pending')
+    @restaurants = Restaurant.near(
+        params[:demand][:location],
+        10
+      ).where(
+        mood_id: params[:demand][:mood_id].to_i
+      ).where(
+        budget_id: params[:demand][:budget_id].to_i
+      )
     if @demand.save
       @restaurants = Restaurant.near(
         params[:demand][:location],

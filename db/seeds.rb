@@ -13,7 +13,7 @@ Demand.destroy_all
 
 # ------------------------------------------------------------------------------
 print 'Seeding moods..'
-%w(business romantic party children outdoor).each do |mood|
+%w(indifférent business romantique festif).each do |mood|
   m = Mood.new(name: mood)
   puts m.errors.messages unless m.valid?
   m.save
@@ -32,11 +32,11 @@ puts 'done.'
 
 # ------------------------------------------------------------------------------
 budgets = [
-  '- de 10 €',
-  '10 à 15 €',
+  '- de 15 € (sans réservation)',
   '15 à 20 €',
   '25 à 30 €',
-  '+ de 30€'
+  '+ de 30€',
+  'indifférent'
 ]
 print 'Seeding budgets..'
 budgets.each do |budget|
@@ -85,19 +85,19 @@ cities = [
 streets = [
   'Rue Victor Hugo',
   'Rue de l\'Eglise',
-  'Rue de la mairie',
-  'Place de la mairie',
+  'Rue de la Mairie',
+  'Place de la Mairie',
   'Place de l\'Eglise',
   'Grande rue',
-  'Rue de la gare',
-  'Rue des écoles',
-  'Rue principale',
-  'Rue du moulin',
+  'Rue de la Gare',
+  'Rue des Ecoles',
+  'Rue Principale',
+  'Rue du Moulin',
   'Rue Pasteur',
-  'Rue du stade',
-  'Rue du château',
-  'Rue de la fontaine',
-  'Rue des jardins'
+  'Rue du Stade',
+  'Rue du Château',
+  'Rue de la Fontaine',
+  'Rue des Jardins'
 ]
 print 'Seeding restaurants..'
 100.times do

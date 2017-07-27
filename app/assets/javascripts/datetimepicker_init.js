@@ -1,9 +1,11 @@
 $(document).ready(function(){
   $('.datetimepicker').datetimepicker({
-    minuteStep: 10,
+    minuteStep: 15,
     autoclose: true,
     format: 'yyyy-mm-dd hh:ii Z',
     timezone: 'GMT+2',
-    pickerPosition: "top-left"
+    pickerPosition: 'bottom-left',
+    language: 'fr',
+    fontAwesome: true
   });
 });
