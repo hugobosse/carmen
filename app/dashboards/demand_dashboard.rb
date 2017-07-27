@@ -10,7 +10,7 @@ class DemandDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     budget: Field::BelongsTo,
-    mood: Field::BelongsTo,
+    tags: Field::String,
     status: Field::BelongsTo,
     pings: Field::HasMany,
     id: Field::Number,
@@ -32,7 +32,7 @@ class DemandDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :budget,
-    :mood,
+    :tags,
     :status,
   ].freeze
 
@@ -43,7 +43,7 @@ class DemandDashboard < Administrate::BaseDashboard
     :user,
     :phone,
     :budget,
-    :mood,
+    :tags,
     :status,
     :pings,
     :number_of_people,
@@ -60,7 +60,7 @@ class DemandDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :budget,
-    :mood,
+    :tags,
     :status,
     :pings,
     :number_of_people,

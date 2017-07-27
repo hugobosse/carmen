@@ -7,7 +7,6 @@ class CreateDemands < ActiveRecord::Migration[5.0]
       t.string :location
       t.datetime :scheduled_at
       t.references :budget, foreign_key: true
-      t.references :mood, foreign_key: true
       t.references :status, foreign_key: true
 
       t.timestamps

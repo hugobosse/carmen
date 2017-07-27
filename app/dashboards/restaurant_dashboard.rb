@@ -10,7 +10,6 @@ class RestaurantDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     user: Field::BelongsTo,
     budget: Field::BelongsTo,
-    mood: Field::BelongsTo,
     taggings: Field::HasMany,
     tags: Field::HasMany,
     id: Field::Number,
@@ -40,7 +39,6 @@ class RestaurantDashboard < Administrate::BaseDashboard
     :address,
     :user,
     :budget,
-    :mood,
     :taggings,
   ].freeze
 
@@ -50,7 +48,6 @@ class RestaurantDashboard < Administrate::BaseDashboard
     :id,
     :user,
     :budget,
-    :mood,
     :taggings,
     :tags,
     :name,
@@ -74,7 +71,6 @@ class RestaurantDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :user,
     :budget,
-    :mood,
     :taggings,
     :tags,
     :name,

@@ -8,7 +8,6 @@
   <li>Comment: <%= @demand.comment %></li>
   <li>Date: <%= @demand.scheduled_at %></li>
   <li>Budget: <%= Budget.find(@demand.budget_id).name %></li>
-  <li>Mood: <%= Mood.find(@demand.mood_id).name %></li>
 </ul>
 
 <hr>

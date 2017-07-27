@@ -15,20 +15,11 @@
     </div>
   </div>
   <div class="row">
-    <div class="pref_link">
-      <a class="carmen_btn" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        + de choix
-      </a>
+    <div class="col-md-6">
+      <%= f.input :tags, label: "Catégorie(s)", placeholder: "Exemple : japonais romantique business gastronomique" %>
     </div>
-    <div class="collapse" id="collapseExample">
-      <div class="pref">
-        <div class="col-md-4">
-          <%= f.association :mood, label: "Quelle ambiance souhaitez-vous ?" %>
-        </div>
-        <div class="col-md-4">
-          <%= f.input :comment, label: "Avez-vous des préférences ?" %>
-        </div>
-      </div>
+    <div class="col-md-6">
+      <%= f.input :comment, label: "Remarques" %>
     </div>
   </div>
   <div class="row">

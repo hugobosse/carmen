@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726152154) do
+ActiveRecord::Schema.define(version: 20170727132825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,21 +28,14 @@ ActiveRecord::Schema.define(version: 20170726152154) do
     t.string   "location"
     t.datetime "scheduled_at"
     t.integer  "budget_id"
-    t.integer  "mood_id"
     t.integer  "status_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.string   "phone"
+    t.string   "tags"
     t.index ["budget_id"], name: "index_demands_on_budget_id", using: :btree
-    t.index ["mood_id"], name: "index_demands_on_mood_id", using: :btree
     t.index ["status_id"], name: "index_demands_on_status_id", using: :btree
     t.index ["user_id"], name: "index_demands_on_user_id", using: :btree
-  end
-
-  create_table "moods", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "pings", force: :cascade do |t|
@@ -80,11 +73,9 @@ ActiveRecord::Schema.define(version: 20170726152154) do
     t.string   "dinner_service_opening_at"
     t.string   "dinner_service_closing_at"
     t.integer  "budget_id"
-    t.integer  "mood_id"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
     t.index ["budget_id"], name: "index_restaurants_on_budget_id", using: :btree
-    t.index ["mood_id"], name: "index_restaurants_on_mood_id", using: :btree
     t.index ["user_id"], name: "index_restaurants_on_user_id", using: :btree
   end
 
@@ -129,7 +120,6 @@ ActiveRecord::Schema.define(version: 20170726152154) do
   end
 
   add_foreign_key "demands", "budgets"
-  add_foreign_key "demands", "moods"
   add_foreign_key "demands", "statuses"
   add_foreign_key "demands", "users"
   add_foreign_key "pings", "demands"
@@ -138,7 +128,6 @@ ActiveRecord::Schema.define(version: 20170726152154) do
   add_foreign_key "reservations", "pings"
   add_foreign_key "reservations", "statuses"
   add_foreign_key "restaurants", "budgets"
-  add_foreign_key "restaurants", "moods"
   add_foreign_key "restaurants", "users"
   add_foreign_key "taggings", "restaurants"
   add_foreign_key "taggings", "tags"

@@ -9,12 +9,11 @@ class CreateRestaurants < ActiveRecord::Migration[5.0]
       t.string :primary_phone
       t.string :secondary_phone
       t.text :description
-      t.stime :lunch_service_opening_at
-      t.time :lunch_service_closing_at
-      t.time :dinner_service_opening_at
-      t.time :dinner_service_closing_at
+      t.string :lunch_service_opening_at
+      t.string :lunch_service_closing_at
+      t.string :dinner_service_opening_at
+      t.string :dinner_service_closing_at
       t.references :budget, foreign_key: true
-      t.references :mood, foreign_key: true
 
       t.timestamps
     end
