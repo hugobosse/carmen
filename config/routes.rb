@@ -3,7 +3,6 @@ Rails.application.routes.draw do
     resources :users
     resources :budgets
     resources :demands
-    resources :moods
     resources :pings
     resources :reservations
     resources :restaurants

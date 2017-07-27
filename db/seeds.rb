@@ -6,19 +6,9 @@ Restaurant.destroy_all
 User.destroy_all
 Reservation.destroy_all
 Ping.destroy_all
-Mood.destroy_all
 Budget.destroy_all
 Status.destroy_all
 Demand.destroy_all
-
-# ------------------------------------------------------------------------------
-print 'Seeding moods..'
-%w(indifférent business romantique festif).each do |mood|
-  m = Mood.new(name: mood)
-  puts m.errors.messages unless m.valid?
-  m.save
-end
-puts 'done.'
 
 #-------------------------------------------------------------------------------
 tags = %w(vegan chinese italian japanese indian french spanish korean portuguese)
@@ -112,7 +102,6 @@ print 'Seeding restaurants..'
     dinner_service_opening_at: '19:00',
     dinner_service_closing_at: '23:00',
     budget: Budget.random,
-    mood: Mood.random
   )
   puts r.errors.messages unless r.valid?
   r.save
