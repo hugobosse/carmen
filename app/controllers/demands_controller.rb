@@ -1,5 +1,5 @@
 class DemandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:create]
+  skip_before_action :authenticate_user!, only: %i(create)
 
   def new
     @demand = Demand.new
@@ -7,11 +7,8 @@ class DemandsController < ApplicationController
 
   def create
     @demand = Demand.new(demand_params)
-    # DEBUG
-    @demand.user = User.first
+    @demand.user = User.first # TODO : user must be found with mobile phone
     @demand.status = Status.find_by_name('pending')
-    # /DEBUG
-    # raise
     if @demand.save
       @restaurants = Restaurant.near(
         params[:demand][:location],
