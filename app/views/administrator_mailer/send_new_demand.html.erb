@@ -19,16 +19,16 @@
   <ul>
     <% @restaurants.each do |restaurant| %>
       <li>
-        <strong><%= @restaurant.name %></strong>
+        <strong><%= restaurant.name %></strong>
         <ul>
-          <li><%= @restaurant.address %></li>
-          <li><%= @restaurant.primary_phone %></li>
-          <li><%= @restaurant.secondary_phone %></li>
-          <li><%= @restaurant.description %></li>
-          <li><%= @restaurant.lunch_service_opening_at %></li>
-          <li><%= @restaurant.lunch_service_closing_at %></li>
-          <li><%= @restaurant.dinner_service_opening_at %></li>
-          <li><%= @restaurant.dinner_service_closing_at %></li>
+          <li><%= restaurant.address %></li>
+          <li><%= restaurant.primary_phone %></li>
+          <li><%= restaurant.secondary_phone %></li>
+          <li><%= restaurant.description %></li>
+          <li><%= restaurant.lunch_service_opening_at %></li>
+          <li><%= restaurant.lunch_service_closing_at %></li>
+          <li><%= restaurant.dinner_service_opening_at %></li>
+          <li><%= restaurant.dinner_service_closing_at %></li>
         </ul>
       </li>
     <% end %>
