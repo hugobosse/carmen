@@ -2,13 +2,13 @@ require 'faker'
 
 Tagging.destroy_all
 Tag.destroy_all
+Demand.destroy_all
 Restaurant.destroy_all
 User.destroy_all
 Reservation.destroy_all
 Ping.destroy_all
 Budget.destroy_all
 Status.destroy_all
-Demand.destroy_all
 
 #-------------------------------------------------------------------------------
 tags = %w(vegan chinese italian japanese indian french spanish korean portuguese)
@@ -50,7 +50,7 @@ print 'Seeding users..'
 50.times do
   u = User.new(
     mobile_phone: '0' + rand(600_000_000..799_999_999).to_s,
-    email: Faker::Internet.email(('a'..'z').to_a.sample(rand(8..12)).join(''))
+    password: ('a'..'z').to_a.sample(6).join('')
   )
   puts u.errors.messages unless u.valid?
   u.save
