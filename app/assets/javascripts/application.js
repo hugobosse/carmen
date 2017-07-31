@@ -7,6 +7,7 @@
 //= require_tree .
 
 $(document).ready(function() {
+  // format mobile_phone input for login (expected : +336... )
   $('#mobile_phone').focusout(function() {
     var input = $(this).val();
     if (input.substr(0, 3) !== '+33') {
