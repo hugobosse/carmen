@@ -1,3 +1,4 @@
+
 Rails.application.routes.draw do
   namespace :admin do
     resources :users
@@ -13,10 +14,12 @@ Rails.application.routes.draw do
     root to: "users#index"
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations' }
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/about/', to: 'pages#about', as: 'about'
+  get 'verify', to: 'verifications#new'
+  post 'verify', to: 'verifications#create'
 
   resources :demands, only: [:create]
+
 end
