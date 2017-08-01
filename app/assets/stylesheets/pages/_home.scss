@@ -3,9 +3,8 @@
  * (margin/padding adjustments)
  * ------------------------------------- */
 .banner {
-  // margin-top: 60px;
   color: white;
-  background-size: cover !important;
+  background-size: cover;
   background-position: center center;
   display: flex;
   flex-direction: column;
@@ -41,7 +40,7 @@
 
 .form-control {
   background: rgba($dark, 0.3);
-  color: $dark4;
+  color: white;
   border-bottom: 1px solid white;
   position: relative;
 }
