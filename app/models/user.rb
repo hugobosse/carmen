@@ -23,6 +23,10 @@ class User < ApplicationRecord
     message: "Ce n'est pas un numéro de mobile valide"
   }
 
+  def mark_phone_as_verified!
+    update!(verified: true, verification_code: nil)
+  end
+
   private
 
   def email_required?
@@ -33,9 +37,6 @@ class User < ApplicationRecord
     false
   end
 
-  def mark_phone_as_verified!
-    update!(verified: true, verification_code: nil)
-  end
 
   def set_phone_attributes
     self.verified = false

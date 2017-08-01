@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Verify</h1>
+  <%= simple_form_for verify_path, method: :post do |f| %>
+    <%= f.input :code, placeholder: "Enter your code" %>
+    <%= f.submit "Confirm" %>
+  <% end %>
+</div>
