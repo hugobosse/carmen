@@ -1,5 +1,4 @@
 class DemandsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: %i(create)
 
   def new
     @demand = Demand.new
@@ -8,13 +7,13 @@ class DemandsController < ApplicationController
   def create
     # check for mobile phone
     valid_phone = true
-    phonytized_phone = PhonyRails.normalize_number(params[:demand][:phone])
+    phonytized_phone = PhonyRails.normalize_number(
+      params[:demand][:phone], country_code: 'FR'
+    )
     valid_phone = false unless phonytized_phone =~ /\A(\+33)?[6,7]\d{8}\z/
     if valid_phone
       # check for existing user ?
       user = User.find_by_mobile_phone(phonytized_phone)
-      raise
-
       # if mobile phone is valid but user doesn't exist, send auth code
       @demand = Demand.new(demand_params)
       @demand.user = user

@@ -24,7 +24,11 @@
   </div>
   <div class="row">
     <div class="col-md-6">
-      <%= f.input :phone, label: "Quel est votre numéro de mobile ?", placeholder: "Nécessaire pour la réservation" %>
+      <% if current_user %>
+        <%= f.input :phone, label: "Votre numéro de mobile", input_html: { value: current_user.mobile_phone } %>
+      <% else %>
+        <%= f.input :phone, label: "Quel est votre numéro de mobile ?", placeholder: "Nécessaire pour la réservation" %>
+      <% end %>
     </div>
     <div class="col-md-6">
       <%= f.submit "Demander à Carmen", class: "input-md submit_carmen" %>
