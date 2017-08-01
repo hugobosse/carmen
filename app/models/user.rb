@@ -11,9 +11,7 @@ class User < ApplicationRecord
   after_save :send_sms_for_phone_verification, if: :phone_verification_needed?
 
   has_many :demands
-
-  validates_presence_of :email, if: :email_required?
-
+  
   validates_uniqueness_of :mobile_phone
   phony_normalize :mobile_phone, default_country_code: 'FR'
   validates :mobile_phone, presence: true
@@ -37,7 +35,6 @@ class User < ApplicationRecord
     false
   end
 
-
   def set_phone_attributes
     self.verified = false
     self.verification_code = generate_verification_code
@@ -57,6 +54,6 @@ class User < ApplicationRecord
     body = "Votre code de vérification est : #{code}"
     Rails.logger.info "SMS: To: #{to} Body: #{body}"
     callr_api = CALLR::Api.new(ENV['CALLR_USERNAME'], ENV['CALLR_PASSWORD'])
-    callr_api.call('sms.send', 'SMS', to, body, nil)
+    callr_api.call('sms.send', 'Carmen', to, body, nil)
   end
 end
