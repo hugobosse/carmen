@@ -3,7 +3,6 @@ class Restaurant < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
-  belongs_to :user
   belongs_to :budget
   has_many :taggings
   has_many :tags, through: :taggings
